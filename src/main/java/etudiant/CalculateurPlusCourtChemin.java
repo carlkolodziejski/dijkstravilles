@@ -30,7 +30,9 @@ public class CalculateurPlusCourtChemin implements ICalculateurPlusCourtChemin {
         // Traitement.
         while (!sommets.isEmpty()) {
             Sommet s = Sommet.getSommetCoutMin(sommets);
-            if (s == sommetArrivee) break;
+            
+            // Si c'est le sommet d'arrivée, nous sommes arrivés à destination, si le coût est infini, il n'y a pas de chemin.
+            if (s == sommetArrivee || s.getCout() == Integer.MAX_VALUE) break;
 
             // Pour arrêter de traiter le sommet.
             sommets.remove(s);
