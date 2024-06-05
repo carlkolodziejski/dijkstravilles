@@ -51,10 +51,11 @@ public class Sommet {
      * @return Le sommet associé avec la ville ou null.
      */
     public static Sommet getSommet(List<Sommet> sommets, Ville ville) {
-        if (!sommets.contains(new Sommet(ville)))
-            return null;
-
-        return sommets.get(sommets.indexOf(new Sommet(ville)));
+        for (Sommet sommet : sommets) {
+            if (sommet.getVille().equals(ville))
+                return sommet;
+        }
+        return null;
     }
 
     /**

@@ -1,0 +1,35 @@
+@startuml
+legend
+    Diagramme du projet DijkstraVilles
+    KOLODZIEJSKI Carl
+    GOUMZI Clément
+endlegend
+
+package etudiant {
+    class MainProg extends Application {
+        +start(ignored: Stage): void
+        +{static} main(args: String[*]): void
+    }
+
+    class CalculateurPlusCourtChemin implements ICalculateurPlusCourtChemin {
+        +plusCourtChemin(toutesLesVilles: Ville[*], villeDepart: Ville, villeArrivee: Ville): Ville[*]
+    }
+
+    class Sommet {
+        -cout: int
+
+        +<<constructor>>Sommet(ville: Ville)
+        +{static}getSommet(sommets: Sommet[*], ville: Ville): Sommet
+        +{static}getSommetCoutMin(sommets: Sommet[*]): Sommet
+        +{static}getSommetVoisins(sommets: Sommet[*], sommet: Sommet): Sommet[*]
+        +getVille(): Ville
+        +getPredecesseur(): Sommet
+        +setPredecesseur(sommet: Sommet): void
+        +getCout(): int
+        +setCout(cout: int): void
+    }
+
+Sommet --> "-predecesseur 1" Sommet
+Sommet --> "-ville 1" Ville
+}
+@enduml
