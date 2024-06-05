@@ -53,6 +53,7 @@ public class Sommet {
     public static Sommet getSommet(List<Sommet> sommets, Ville ville) {
         if (!sommets.contains(new Sommet(ville)))
             return null;
+
         return sommets.get(sommets.indexOf(new Sommet(ville)));
     }
 
@@ -64,6 +65,7 @@ public class Sommet {
      */
     public static Sommet getSommetCoutMin(List<Sommet> sommets) {
         Sommet sommetMin = sommets.getFirst();
+
         for (Sommet sommet : sommets) {
             if (sommet.getCout() < sommetMin.getCout())
                 sommetMin = sommet;
@@ -82,6 +84,7 @@ public class Sommet {
         ArrayList<Ville> villesVoisines = sommet.ville.getVillesVoisines();
         ArrayList<Sommet> sommetsVoisins = new ArrayList<>();
 
+        // On ajoute les sommets voisins non nuls à la liste des sommets voisins.
         for (Ville villeVoisine : villesVoisines) {
             Sommet sommetVoisin = getSommet(sommets, villeVoisine);
             if (sommetVoisin != null)
