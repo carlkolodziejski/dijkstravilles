@@ -6,11 +6,6 @@ import jfc.Ville;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Les instances de cette classe permette de calculer un plus court chemine entre deux villes en utilisant l'algorithme de Dijkstra.
- *
- * @author Jean-François Condotta, 04 juin 2023.
- */
 public class CalculateurPlusCourtChemin implements ICalculateurPlusCourtChemin {
 
     @Override
@@ -29,10 +24,8 @@ public class CalculateurPlusCourtChemin implements ICalculateurPlusCourtChemin {
         Sommet sommetArrivee = Sommet.getSommet(sommets, villeArrivee);
 
         // On initialise le coût du sommet correspondant à la ville de départ à 0.
+        assert sommetDepart != null;
         sommetDepart.setCout(0);
-
-        chemin.add(villeDepart);
-        chemin.add(villeArrivee);
 
         // Traitement.
         while (!sommets.isEmpty()) {
@@ -53,7 +46,19 @@ public class CalculateurPlusCourtChemin implements ICalculateurPlusCourtChemin {
             }
         }
 
+        // On récupère le chemin le plus court.
+        assert sommetArrivee != null;
+        if (sommetArrivee.getPredecesseur() != null || sommetArrivee == sommetDepart) {
+            Sommet s = sommetArrivee;
+            while (s != null) {
+                // On ajoute s en tête du chemin.
+                chemin.addFirst(s.getVille());
+                s = s.getPredecesseur();
+            }
+        }
+
         return chemin;
     }
 
 }
+
