@@ -32,6 +32,6 @@ package etudiant {
 Sommet --> "-predecesseur 1" Sommet
 Sommet o-- "-ville 1" Ville
 
-CalculateurPlusCourtChemin --> Ville
+CalculateurPlusCourtChemin ..> Ville
 }
 @enduml
