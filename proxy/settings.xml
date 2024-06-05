@@ -1,0 +1,21 @@
+<settings>
+<proxies>
+    <proxy>
+        <id>httpproxy</id>
+        <active>true</active>
+        <protocol>http</protocol>
+        <host>cache-iutl.univ-artois.fr</host>
+        <port>3128</port>
+        <nonProxyHosts></nonProxyHosts>
+    </proxy>
+<proxy>
+        <id>httpsproxy</id>
+        <active>true</active>
+        <protocol>https</protocol>
+        <host>cache-iutl.univ-artois.fr</host>
+        <port>3128</port>
+        <nonProxyHosts></nonProxyHosts>
+    </proxy>
+
+</proxies>
+</settings>
