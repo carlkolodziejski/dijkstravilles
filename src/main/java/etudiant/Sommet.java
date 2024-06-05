@@ -88,6 +88,7 @@ public class Sommet {
         // On ajoute les sommets voisins non nuls à la liste des sommets voisins.
         for (Ville villeVoisine : villesVoisines) {
             Sommet sommetVoisin = getSommet(sommets, villeVoisine);
+            
             if (sommetVoisin != null)
                 sommetsVoisins.add(sommetVoisin);
         }

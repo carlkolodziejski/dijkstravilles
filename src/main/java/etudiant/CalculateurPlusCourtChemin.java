@@ -31,6 +31,8 @@ public class CalculateurPlusCourtChemin implements ICalculateurPlusCourtChemin {
         while (!sommets.isEmpty()) {
             Sommet s = Sommet.getSommetCoutMin(sommets);
             if (s == sommetArrivee) break;
+
+            // Pour arrêter de traiter le sommet.
             sommets.remove(s);
 
             // On met à jour les coûts des sommets voisins.
